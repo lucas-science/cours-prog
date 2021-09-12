@@ -13,7 +13,7 @@ def getmini_iterative(l,base_mini):
 
 
 def getmini_recursive(l,base_mini):
-    if len(l) <= 1:
+    if len(l) <= 0:
         return base_mini
     else:
         if base_mini < l[0]:
@@ -21,7 +21,6 @@ def getmini_recursive(l,base_mini):
         else:
             base_mini = l[0]
             return getmini_recursive(l[1:],base_mini)
-
 
 
 def get_data(n):
@@ -57,6 +56,9 @@ def get_data(n):
         ]
     }
 
+
+
+"""
 dataIterative = []
 dataRecursive = []
 x = 0
@@ -70,4 +72,4 @@ for i in tqdm(range(10000)):
 plt.plot(dataIterative)
 plt.plot(dataRecursive)
 plt.show()
-plt.savefig('recursive_VS_iterative.png')
+plt.savefig('recursive_VS_iterative.png')"""
