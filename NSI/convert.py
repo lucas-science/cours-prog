@@ -46,6 +46,5 @@ def bTodec_recurs(mot,b,res=0,n=0):
         return bTodec_recurs(mot,b,res + signes.index(mot[len(mot)-1-n]) * b**n,n+1)
 
 
-
 #print(bTodec_recurs("01011001",2))
 #print(bTodec_recurs("F5",16))
