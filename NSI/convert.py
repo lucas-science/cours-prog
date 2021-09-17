@@ -1,4 +1,3 @@
-"""
 
 def DecToBase(n,b):
     assert (b==2 or b == 8 or b== 16) , " Uniquement avec une des bases usuelles "
@@ -11,7 +10,7 @@ def DecToBase(n,b):
 
 
 
-print(DecToBase(76,2))
+#print(DecToBase(76,2))
 
 def DecToBase_recurs(n,b,res):
     symboles = ["0","1","2","3","4","5","6","7","8","9","A","B","C","D","E","F"]
@@ -21,8 +20,8 @@ def DecToBase_recurs(n,b,res):
         return DecToBase_recurs(n//b,b,symboles[n%b] + res)
 
 
-print(DecToBase_recurs(76,2,""))
-"""
+#print(DecToBase_recurs(76,2,""))
+
 
 
 
