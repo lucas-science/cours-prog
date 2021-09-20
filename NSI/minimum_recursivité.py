@@ -14,20 +14,18 @@ def minimum(a,b):
         return l[0]
     else:
         return getmini_recursive2( minimum(l[0],l[1]) + l[2:])"""
-
+L = [14,8,12,4,5,-40,2]
 def getmini_recursive(l):
     if len(l) <= 1:
         return l[0]
     else:
-        return minimum(L[0],getmini_recursive(l[1]))
+        return minimum(l[0],getmini_recursive(l[1]))
 
 def getmini_iterative(l,base_mini):
     for i in l:
         if i < base_mini:
             base_mini = i
     return base_mini
-
-L = [14,8,12,4,5,-40,2]
 
 print(getmini_recursive(L))
 

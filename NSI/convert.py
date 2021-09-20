@@ -22,9 +22,6 @@ def DecToBase_recurs(n,b,res):
 
 #print(DecToBase_recurs(76,2,""))
 
-
-
-
 def bTodec(mot,b):
     signes=["0","1","2","3","4","5","6","7","8","9","A","B","C","D","E","F"]
     result=0
@@ -36,14 +33,14 @@ def bTodec(mot,b):
 #print(bTodec("01011001",2))
 #print(bTodec("F5",16))
 
-def bTodec_recurs(mot,b,res=0,n=0):
+def bTodec_recurs(mot,b,res=0):
     signes=["0","1","2","3","4","5","6","7","8","9","A","B","C","D","E","F"]
-    if n == len(mot):
+    if len(mot) <= 0:
         return res
     else:
         #print(n,mot[len(mot)-n-1])
-        return bTodec_recurs(mot,b,res + signes.index(mot[len(mot)-1-n]) * b**n,n+1)
+        return bTodec_recurs(mot[1:],b,res + signes.index(mot[0]) * b**(len(mot)-1))
 
 
-#print(bTodec_recurs("01011001",2))
-#print(bTodec_recurs("F5",16))
+print(bTodec_recurs("01011001",2))
+print(bTodec_recurs("F5",16))
