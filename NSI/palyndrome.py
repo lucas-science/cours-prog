@@ -8,23 +8,15 @@ def est_palindrome(mot):
 
 print(est_palindrome("kaak"))
 
-def est_palindrome_recursive(mot,res=False,i=0):
-    l = len(mot)//2
+def est_palindrome_recursive(mot,res=False):
+    l = len(mot)
     if res == True:
         return False
-    elif i == l:
+    elif l < 2:
         return True
     else:
-        return est_palindrome_recursive(mot,mot[i] != mot[-i-1],i+1)
+        return est_palindrome_recursive(mot[1:-1],mot[0] != mot[-1])
 
 
-print(est_palindrome_recursive("raddar"))
-"""
+print(est_palindrome_recursive("s a u a s"))
 
-si i == 0
-retourner res
-
-sinon 
-retourner 
-
-"""
