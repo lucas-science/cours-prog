@@ -8,7 +8,7 @@ print(iteratif(2,4))
 
 
 def recurs(x,n):
-    if n <= 1:  # si n <= 0 alors return 1
+    if n <=1:  # ou n < 2
         return x
     else:
         return x*recurs(x,n-1)

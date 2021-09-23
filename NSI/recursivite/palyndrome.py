@@ -1,4 +1,4 @@
-def est_palindrome(mot):
+"""def est_palindrome(mot):
     mot=mot.lower()
     for i in range(len(mot)//2):
         if mot[i]!=mot[-i-1]:
@@ -20,3 +20,13 @@ def est_palindrome_recursive(mot,res=False):
 
 print(est_palindrome_recursive("s a u a s"))
 
+"""
+
+def est_palindrome_recurs(mot:str):
+    if len(mot)< 2:
+        return True
+    else:
+        return (est_palindrome_recurs(mot[1:-1]) and mot[0] == mot[-1])
+
+
+print(est_palindrome_recurs('KAYAK'))
