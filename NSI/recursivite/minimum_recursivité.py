@@ -19,7 +19,7 @@ def getmini_recursive(l):
     if len(l) <= 1:
         return l[0]
     else:
-        return minimum(l[0],getmini_recursive(l[1]))
+        return minimum(l[0],getmini_recursive(l[1:]))
 
 def getmini_iterative(l,base_mini):
     for i in l:
@@ -27,8 +27,8 @@ def getmini_iterative(l,base_mini):
             base_mini = i
     return base_mini
 
-print(getmini_recursive(L))
-
+print("LA",getmini_recursive(L))
+"""
 
 def get_data(n):
     L = [ randint(0,10) for x in range(n)]
@@ -42,7 +42,7 @@ def get_data(n):
     Resultat_recursive = getmini_iterative(L, mini)
     duration2 = default_timer() - start2
 
-    """print({
+    print({
         "iterative":[
             Resultat_iterative,
             duration1
@@ -51,7 +51,7 @@ def get_data(n):
             Resultat_recursive,
             duration2
         ]
-    })"""
+    })
     return {
         "iterative":[
             Resultat_iterative,
@@ -63,7 +63,7 @@ def get_data(n):
         ]
     }
 
-
+"""
 
 """
 dataIterative = []
