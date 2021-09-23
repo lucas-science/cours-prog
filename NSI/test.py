@@ -27,10 +27,18 @@ async def on_message(message):
 client.run("ODg2NjQ4ODQ0MTU3MzMzNTg2.YT4qFQ.iMBP6ca1BV-nmhu7rN-8o7Mvou4")"""
 
 
-def Mini(a,b):
-    c = b
-    if(a < b ):
-        c = a
-    return(c)
+def fact(N):
+    if N <= 1:
+        return 1
+    else:
+        return N*fact(N-1)
 
-print(Mini(5,(4,(6,(7,8)))))
+
+def fact_iter(N):
+    x = 1
+    for i in range(N):
+        x = x*(N-i)
+    return x
+
+print(fact(5))
+print(fact_iter(5))
