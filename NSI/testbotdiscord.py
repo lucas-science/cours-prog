@@ -1,4 +1,4 @@
-import discord
+"""import discord
 
 client = discord.Client()
 
@@ -24,4 +24,13 @@ async def on_message(message):
     elif message.content.lower() == "def of louis":
         await message.channel.send("louis est une personne qui affirmait vouloir creer une bible pour montrer le droit chemin aux autres personnes perdu, cependant je n'ai tjr pas vu de bible.pdf arriver dans le channel depuis l'annonce de cette oeuvre ayant pour but de boulverser les plus grands esprits."+'\n'+"Louis aurait il besoin d'un rappel ? @Louis#9086")
 
-client.run("ODg2NjQ4ODQ0MTU3MzMzNTg2.YT4qFQ.iMBP6ca1BV-nmhu7rN-8o7Mvou4")
+client.run("ODg2NjQ4ODQ0MTU3MzMzNTg2.YT4qFQ.iMBP6ca1BV-nmhu7rN-8o7Mvou4")"""
+
+
+def Mini(a,b):
+    c = b
+    if(a < b ):
+        c = a
+    return(c)
+
+print(Mini(5,(4,(6,(7,8)))))

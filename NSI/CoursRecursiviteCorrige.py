@@ -80,6 +80,7 @@ def PuissanceNPedagogique(val,exposant):
         print("Dépilage et calcul puissance : ",res)    # Uniquement pour afficher et comprendre le fonctionnement
         return(res)
 
+
 Nb = int(input("saisir le nombre d'éléments de la liste : "))
 L = InitListe(Nb)
 
