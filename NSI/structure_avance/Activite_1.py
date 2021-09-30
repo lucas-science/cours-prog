@@ -110,13 +110,11 @@ print(PILE)
 
 print( DEPILER(PILE))
 """
+print("here")
 #ACT 9
 
 def CreaStack():
     return []
-
-PILE2 = CreaStack()
-print(PILE2)
 
 def Vide(p):
     if len(p)==0:
@@ -124,12 +122,8 @@ def Vide(p):
     else:
         return False
 
-print(Vide(PILE2))
 def Push(p,x):
     p.append(x)
-
-Push(PILE2, 78)
-print(PILE2)
 
 def Pop(p):
     if len(p)>0:
@@ -137,10 +131,21 @@ def Pop(p):
     else:
         print("La PILE est vide")
 
+PILE2 = CreaStack()
+
+print(PILE2)
+Push(PILE2, 3)
+Push(PILE2, 7)
+Push(PILE2, 1)
+Push(PILE2, 8)
+print(PILE2)
+
+Pop(PILE2)
 Pop(PILE2)
 print(PILE2)
 
 # ACT 10
+"""
 def CREER_FILE_VIDE(n):
     F=[None]*(n+3) #Création de liste vide
     F[0]=3 
@@ -168,9 +173,11 @@ ENFILER (File,7)
 ENFILER (File,1)
 ENFILER (File,8)
 print(File)
+print("here2")
 
 #ACT 11
-
+"""
+"""
 def DEFILER(F):
     if len(F)==0:
         print("La file est vide")
@@ -186,11 +193,10 @@ def DEFILER(F):
 ENFILER(File,8)
 print(DEFILER(File))
 print(DEFILER(File))
-
 print(File)
-
+"""
 # ACT 12
-
+"""
 def CreaQueue():
     return []
 
@@ -200,31 +206,24 @@ def QueueEmpty(F):
     else:
         return False
 
-
 def EnQueue(F,x):
     F.append(x)
 
 def Dequeue(F):
     if QueueEmpty(F) == False:
         F.pop(0)
-        return "value pop"
+        return "value poped"
     else:
         return("la liste est vie")
 
-FILE2 = CreaStack()
-
-EnQueue(FILE2,4)
-EnQueue(FILE2,5)
-Dequeue(FILE2)
-
-print(FILE2)
-
-print("next")
 FILE3 = CreaStack()
+
 for i in range(5):
     EnQueue(FILE3,2*i)
+
 print(FILE3)
 a=Dequeue(FILE3)
 print(a)
 print(FILE3)
 print(QueueEmpty(FILE3))
+"""
