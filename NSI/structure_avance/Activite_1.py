@@ -174,13 +174,15 @@ def ENFILER(F,E):
         print("La file est pleine")
         return False
     else:
+        F[2]+=1
         F[F[1]]=E
         if F[1]==len(F)-1:
             F[1]=3
         else:
             F[1]+=1
-            F[2]+=1
         return True
+
+
 
 File=CREER_FILE_VIDE(6) #On créé une liste vide de 6 éléments
 print(File)
@@ -190,21 +192,20 @@ ENFILER (File,1)
 ENFILER (File,8)
 print(File)
 print("here2")
-
-#ACT 11
 """
+#ACT 11
+
 """
 def DEFILER(F):
     if len(F)==0:
         print("La file est vide")
     else:
+        F[2]-=1
         Element = F[F[0]]
         if F[0] == len(F)-1:
             F[0]=3
-            F[2]-=1 #MODIFFFFF
         else:
             F[0]+=1
-            F[2]-=1
         return Element
 
 ENFILER(File,8)
@@ -213,7 +214,7 @@ print(DEFILER(File))
 print(File)
 """
 # ACT 12
-
+"""
 def CreaQueue():
     return []
 
@@ -254,3 +255,5 @@ def SOMMET(F):
 print(FILE3)
 print(TAILLE(FILE3))
 print(SOMMET(FILE3))
+
+"""

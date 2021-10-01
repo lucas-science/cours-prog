@@ -113,6 +113,7 @@ EMPILER(Pile,'*')
 EMPILER(Pile,'*')
 print(Pile)
 """
+"""
 def CREER_FILE_VIDE(n):
     F=[None]*(n+3) #Création de liste vide
     F[0]=3 
@@ -144,6 +145,7 @@ def DEFILER(F):
         else:
             F[0]+=1
         return Element
+"""
 """
 File=CREER_FILE_VIDE(5)
 ENFILER(File,'K')
@@ -205,6 +207,25 @@ print(VERIFIER_PARENTHESE(")3*(2+1)/(15/6)+6 "))
 
 print(VERIFIER_PARENTHESE(" "))"""
 
+def CreaQueue():
+    return []
+
+def QueueEmpty(F):
+    if len(F)==0:
+        return True
+    else:
+        return False
+
+def EnQueue(F,x):
+    F.append(x)
+
+def Dequeue(F):
+    if QueueEmpty(F) == False:
+        return F.pop(0)
+    else:
+        return("la liste est vie")
+
+
 def calcul(operation:str,x:int,y:int):
     if operation == '*':
         return x*y
@@ -217,20 +238,28 @@ def calcul(operation:str,x:int,y:int):
     else:
         return "'operation' est invalide"
 
-formule = "((3+2)∗6)/5+4"
+formule = "((3+2)*6)/5+4"
 
-NUMBER = [0,1,2,3,4,5,6,7,8,9]
+NUMBER = ["0","1","2","3","4","5","6","7","8","9"]
 OPERATEUR = ['+','-','*','/']
 
-PILE2 = CREER_PILE()
+PILE2 = CreaQueue()
 
 def Evaluation(inp):
+    res = 0
+    op = ""
     for i in inp:
-        if i == "(" or i == ")":
-            pass
         if i in NUMBER:
-            Push(PILE2,i)
-        if i in OPERATEUR and PILE2:
-            
+            EnQueue(PILE2,float(i))
+            print("la2",PILE2)
+        if i in NUMBER and op != "" and len(PILE2) == 2:
+            res = calcul(op,Dequeue(PILE2),Dequeue(PILE2))
+            EnQueue(PILE2,res)
+            print("la2",PILE2)
+            op = ""
+        if i in OPERATEUR:
+            op = i
+    return res
 
-Evaluation(formule)
+print(Evaluation(formule))
+
