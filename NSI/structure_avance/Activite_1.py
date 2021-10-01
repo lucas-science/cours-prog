@@ -16,6 +16,14 @@ def INSERER(l,e,i):
         l[0] = l[0]+1
         return True
 
+L=CREER_LISTE_VIDE(6)#On créé une liste vide de 6 éléments
+INSERER(L,3,1)
+INSERER(L,7,2)
+INSERER(L,1,3)
+INSERER(L,8,4)
+print(L)
+
+
 def SUPPRIMER(l,i):
     if (l[0]!=0) and (i<=l[0]):
         for k in range(i,l[0]):
@@ -27,13 +35,12 @@ def SUPPRIMER(l,i):
         print("La liste est vide ou l'index i n'est pas correct")
         return False
 
-
 def RECHERCHER(l,e):
     for i in l:
         if i == e:
             return l.index(i)
     return -1
-    
+
 
 def INDEXER(l,i):
     if (i>=1) and (i<=l[0]):
@@ -41,16 +48,20 @@ def INDEXER(l,i):
     else:
         return "L'index i est incorrecte"
 
+
 def MODIFIER(l,e,i):
     if (i>=1) and (i<=l[0]):
         l[i] = e
         return True
     else:
-        return "L'index i est incorrecte"
+        print("L'index i est incorrecte")
+        return False
+
 
 
 def LONGUEUR(l):
     return l[0]
+
 
 """
 INSERER(L,3,1)
@@ -72,6 +83,8 @@ print("indexer 10 : ",INDEXER (L,10))
 print(MODIFIER(L,25,2), " la liste : ", L)
 print(MODIFIER(L,25,10), " la liste : ", L)
 
+
+"""
 """
 #ACT 7
 def CREER_PILE_VIDE(n):
@@ -79,9 +92,6 @@ def CREER_PILE_VIDE(n):
     p=[None]*(n+1) #Création de liste vide
     p[0]=1 #On initialise la case 0 à 1
     return p
-
-PILE = CREER_PILE_VIDE(6)
-
 
 def EMPILER(P,E):
     if P[0] == len(P):
@@ -91,6 +101,17 @@ def EMPILER(P,E):
         P[P[0]] = E
         P[0] += 1
         return True
+
+Pile=CREER_PILE_VIDE(6)#On créé une liste vide de 6 éléments
+print(Pile)
+EMPILER(Pile,3)
+EMPILER(Pile,7)
+EMPILER(Pile,1)
+EMPILER(Pile,8)
+print(Pile)
+"""
+"""
+
 #ACT 8
 def DEPILER(P):
     if P[0] <= 1:
@@ -100,19 +121,14 @@ def DEPILER(P):
         P[0] = P[0]-1
         return P[P[0]]
 
-"""
-print(PILE)
-EMPILER(PILE,3)
-EMPILER(PILE,7)
-EMPILER(PILE,1)
-EMPILER(PILE,8)
-print(PILE)
+print(Pile)
+print(DEPILER(Pile))
+print(Pile)
 
-print( DEPILER(PILE))
 """
-print("here")
+
 #ACT 9
-
+"""
 def CreaStack():
     return []
 
@@ -143,7 +159,7 @@ print(PILE2)
 Pop(PILE2)
 Pop(PILE2)
 print(PILE2)
-
+"""
 # ACT 10
 """
 def CREER_FILE_VIDE(n):
@@ -185,6 +201,7 @@ def DEFILER(F):
         Element = F[F[0]]
         if F[0] == len(F)-1:
             F[0]=3
+            F[2]-=1 #MODIFFFFF
         else:
             F[0]+=1
             F[2]-=1
@@ -196,7 +213,7 @@ print(DEFILER(File))
 print(File)
 """
 # ACT 12
-"""
+
 def CreaQueue():
     return []
 
@@ -216,7 +233,7 @@ def Dequeue(F):
     else:
         return("la liste est vie")
 
-FILE3 = CreaStack()
+FILE3 = CreaQueue()
 
 for i in range(5):
     EnQueue(FILE3,2*i)
@@ -226,4 +243,14 @@ a=Dequeue(FILE3)
 print(a)
 print(FILE3)
 print(QueueEmpty(FILE3))
-"""
+
+
+def TAILLE(F):
+    return len(F)
+
+def SOMMET(F):
+    return F[0]
+    
+print(FILE3)
+print(TAILLE(FILE3))
+print(SOMMET(FILE3))

@@ -54,7 +54,7 @@ def MODIFIER(l,e,i):
 def LONGUEUR(l):
     return l[0]
 
-
+"""
 L1=CREER_LISTE_VIDE(5)
 L2=CREER_LISTE_VIDE(5)
 INSERER(L1,0,1)
@@ -68,7 +68,7 @@ INSERER(L2,INDEXER(L1,3),1)
 INSERER(L2,INDEXER(L1,4),1)
 INSERER(L2,INDEXER(L1,5),1)
 print(L1,L2)
-
+"""
 
 def CREER_PILE_VIDE(n):
     p=[]
@@ -125,26 +125,26 @@ def ENFILER(F,E):
         print("La file est pleine")
         return False
     else:
+        F[2]+=1
         F[F[1]]=E
         if F[1]==len(F)-1:
             F[1]=3
         else:
             F[1]+=1
-            F[2]+=1
         return True
 
 def DEFILER(F):
     if len(F)==0:
         print("La file est vide")
     else:
+        F[2]-=1 #MODIFFFFF
         Element = F[F[0]]
         if F[0] == len(F)-1:
             F[0]=3
         else:
             F[0]+=1
-            F[2]-=1
         return Element
-
+"""
 File=CREER_FILE_VIDE(5)
 ENFILER(File,'K')
 ENFILER(File,'A')
@@ -161,3 +161,76 @@ ENFILER(File,'*')
 ENFILER(File,'O')
 ENFILER(File,'*')
 print(File)
+"""
+def CREER_PILE():
+    return []
+
+def Vide(p):
+    if len(p)==0:
+        return True
+    else:
+        return False
+
+def Push(p,x):
+    p.append(x)
+
+def Pop(p):
+    if len(p)>0:
+        return p.pop()
+    else:
+        print("La PILE est vide")
+
+PILE = CREER_PILE()
+
+def VERIFIER_PARENTHESE(inp):
+    for i in inp:
+        if i == "(":
+            Push(PILE,i)
+            #print(PILE)
+        if i == ')' and Vide(PILE):
+            return False
+        if i == ")" and Vide(PILE)==False:
+            Pop(PILE)
+            #print(PILE)
+    if Vide(PILE):
+        return True
+    else:
+        length = len(PILE)
+        for i in range(length):
+            Pop(PILE)
+        return False
+
+"""print(VERIFIER_PARENTHESE("13*2+(5*6)+10/(5+1)"))
+print(VERIFIER_PARENTHESE(")3*(2+1)/(15/6)+6 "))
+
+print(VERIFIER_PARENTHESE(" "))"""
+
+def calcul(operation:str,x:int,y:int):
+    if operation == '*':
+        return x*y
+    elif operation == '/':
+        return x/y
+    elif operation == '+':
+        return x+y
+    elif operation == '-':
+        return x-y
+    else:
+        return "'operation' est invalide"
+
+formule = "((3+2)∗6)/5+4"
+
+NUMBER = [0,1,2,3,4,5,6,7,8,9]
+OPERATEUR = ['+','-','*','/']
+
+PILE2 = CREER_PILE()
+
+def Evaluation(inp):
+    for i in inp:
+        if i == "(" or i == ")":
+            pass
+        if i in NUMBER:
+            Push(PILE2,i)
+        if i in OPERATEUR and PILE2:
+            
+
+Evaluation(formule)
