@@ -1,5 +1,8 @@
 
 
+from os import putenv
+
+
 def CREER_LISTE_VIDE(n):
     L=[None]*(n+1) #Création de liste vide
     L[0]=0 #On initialise la case 0 à 0 éléments
@@ -237,7 +240,7 @@ def calcul(operation:str,x:int,y:int):
         return x-y
     else:
         return "'operation' est invalide"
-
+"""
 formule = "((3+2)*6)/5+4"
 
 NUMBER = ["0","1","2","3","4","5","6","7","8","9"]
@@ -260,6 +263,85 @@ def Evaluation(inp):
         if i in OPERATEUR:
             op = i
     return res
+    
+"""
+def CreaStack():
+    return []
 
-print(Evaluation(formule))
+def Vide(p):
+    if len(p)==0:
+        return True
+    else:
+        return False
 
+def Push(p,x):
+    p.append(x)
+
+def Pop(p):
+    if len(p)>0:
+        return p.pop()
+    else:
+        print("La PILE est vide")
+
+def sommet(p):
+    return p[-1]
+
+
+
+OPERATEUR = ['+','-','*','/']
+
+def Evaluation(inp):
+    pile = CreaStack()
+    formule = inp.split(" ")
+    print(formule)
+    for i in formule:
+        if i in OPERATEUR:
+            b = Pop(pile)
+            a = Pop(pile)
+            res = calcul(i,a,b)
+            Push(pile,res)
+        else:
+            Push(pile,float(i))
+    return pile[0]
+
+
+
+print(Evaluation(str(input('entrer une frormule NPI : '))))
+
+def Hanoi(n,depart,arrivee,intermediaire):
+    if n == 0:
+        for i in range(n,0,-1):
+            Push(depart,i)
+    trivialEND = depart.copy()
+    if arrivee == trivialEND:
+        return True
+    else:
+        if Vide(intermediaire) and Vide(arrivee):
+            Push(arrivee,Pop(depart))
+        elif Vide(intermediaire):
+            Push(intermediaire,Pop(depart))
+        else:
+            if sommet(arrivee)<sommet(depart):
+                Push(intermediaire,Pop(depart))
+                
+            elif sommet(arrivee)>sommet(intermediaire):
+                Push(arrivee, Pop(intermediaire))   
+
+            elif Vide(depart):
+                if sommet(arrivee)>sommet(intermediaire):
+                    Push(arrivee,Pop(intermediaire))
+                elif sommet(arrivee)<sommet(intermediaire):
+                    Push(intermediaire,Pop(arrivee))
+        print(depart,arrivee,intermediaire)
+        n += 1
+        return Hanoi(n,depart,arrivee,intermediaire)
+        
+        
+
+
+pile1 = CreaStack()
+pile2 = CreaStack()
+pile3 = CreaStack()
+N = 0
+print(Hanoi(N,pile1,pile2,pile3))
+print(N)
