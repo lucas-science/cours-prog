@@ -308,9 +308,12 @@ def Evaluation(inp):
 
 print(Evaluation(str(input('entrer une frormule NPI : '))))
 
-def Hanoi(n,depart,arrivee,intermediaire):
+
+
+
+def Hanoi(X,n,depart,arrivee,intermediaire):
     if n == 0:
-        for i in range(n,0,-1):
+        for i in range(X,0,-1):
             Push(depart,i)
     trivialEND = depart.copy()
     if arrivee == trivialEND:
@@ -334,14 +337,13 @@ def Hanoi(n,depart,arrivee,intermediaire):
                     Push(intermediaire,Pop(arrivee))
         print(depart,arrivee,intermediaire)
         n += 1
-        return Hanoi(n,depart,arrivee,intermediaire)
+        return Hanoi(X,n,depart,arrivee,intermediaire)
         
         
-
-
 pile1 = CreaStack()
 pile2 = CreaStack()
 pile3 = CreaStack()
 N = 0
-print(Hanoi(N,pile1,pile2,pile3))
+X = 3
+print(Hanoi(X,N,pile1,pile2,pile3))
 print(N)
