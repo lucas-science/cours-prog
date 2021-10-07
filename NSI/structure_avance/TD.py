@@ -238,7 +238,7 @@ def calcul(operation:str,x:int,y:int):
     else:
         return "'operation' est invalide"
 
-formule = "((3+2)*6)/5+4"
+formule = "3+6*5/4+ "
 
 NUMBER = ["0","1","2","3","4","5","6","7","8","9"]
 OPERATEUR = ['+','-','*','/']
@@ -261,5 +261,5 @@ def Evaluation(inp):
             op = i
     return res
 
-print(Evaluation(formule))
+print(Evaluation(str(input("rentrer une formule voulu : "))))
 
