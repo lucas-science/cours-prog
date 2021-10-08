@@ -22,12 +22,10 @@ def VERIFIER_PARENTHESE(inp):
     for i in inp:
         if i == "(":
             Push(PILE,i)
-            #print(PILE)
         if i == ')' and Vide(PILE):
             return False
         if i == ")" and Vide(PILE)==False:
             Pop(PILE)
-            #print(PILE)
     if Vide(PILE):
         return True
     else:
@@ -42,17 +40,7 @@ print(VERIFIER_PARENTHESE(")3*(2+1)/(15/6)+6 "))
 print(VERIFIER_PARENTHESE(" "))"""
 
 
-def calcul(operation:str,x,y):
-    if operation == '*':
-        return x*y
-    elif operation == '/':
-        return x/y
-    elif operation == '+':
-        return x+y
-    elif operation == '-':
-        return x-y
-    else:
-        return "'operation' est invalide"
+
 
 formule = "3+6*5/4+ "
 
@@ -76,7 +64,7 @@ def formuleTOnpi(inp):
             op = i
     return PILE2
     
-#print(formuleTOnpi(str(input("rentrer une formule voulu : "))))
+print(formuleTOnpi(str(input("rentrer une formule voulu : "))))
 
 def CreaStack():
     return []
@@ -100,7 +88,17 @@ def Pop(p):
 def sommet(p):
     return p[-1]
 
-
+def calcul(operation:str,x,y):
+    if operation == '*':
+        return x*y
+    elif operation == '/':
+        return x/y
+    elif operation == '+':
+        return x+y
+    elif operation == '-':
+        return x-y
+    else:
+        return "'operation' est invalide"
 
 OPERATEUR = ['+','-','*','/']
 
