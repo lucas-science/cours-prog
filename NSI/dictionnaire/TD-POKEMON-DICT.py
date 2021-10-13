@@ -37,11 +37,9 @@ Calcul_Defense_Attaque(Carapuce,Evoli)
 i = 0
 
 def combat(poke1,poke2):
+    i = 0
     while poke1["HP"]> 9 and poke2["HP"]>9:
         inp = input("click espace bar and enter to continue : ")
         while inp != " ":
             inp = input("click espace bar and enter to continue : ")
-
-
-        print(i)
         i+=1
