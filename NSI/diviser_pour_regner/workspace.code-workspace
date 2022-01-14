@@ -1,0 +1,33 @@
+{
+    "folders": [
+		{
+			"path": "..\\..\\..\\..\\..\\programation_projet\\youtubeParty"
+		},
+		{
+			"path": "..\\.."
+		},
+		{
+			"path": "..\\..\\..\\..\\..\\programation_projet\\App-stripled"
+		},
+		{
+			"path": "..\\..\\..\\..\\..\\programation_projet\\TradeBot"
+		},
+		{
+			"path": "..\\..\\..\\..\\..\\programation_projet\\Bot-twitter-m-t-o-python"
+		},
+		{
+			"path": "..\\..\\..\\..\\..\\programation_projet\\moyenneMBN\\MoyenneMBN"
+		},
+		{
+			"path": "..\\..\\..\\..\\..\\programation_projet\\productiviity_extension"
+		},
+		{
+			"path": "..\\..\\..\\..\\1er\\NSI\\myapp"
+		}
+	],
+    "settings": {
+        "files.associations": {
+            "types.h": "c"
+        }
+    }
+}
