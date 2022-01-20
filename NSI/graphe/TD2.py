@@ -1,4 +1,6 @@
 # ACT 1
+from operator import truediv
+from this import d
 from numpy import Infinity
 
 
