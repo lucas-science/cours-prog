@@ -1,6 +1,4 @@
-# ACT 1
-from numpy import Infinity
-
+import random
 
 def GrapheCreation():
     return dict()
@@ -141,7 +139,7 @@ def GrapheNbSommets(g):
 
 lenG1 = GrapheNbSommets(G)
 lenG2 = GrapheNbSommets(G)
-print(lenG1,lenG2)
+print("Nombre Sommets G1 :",lenG1,"\nNombre Sommets G2 :",lenG2)
 
 # ACT 2
 
@@ -157,8 +155,7 @@ def GrapheNonOrienteNbDegre(g,s):
 
 degA = GrapheNonOrienteNbDegre(G2,'A')
 degB = GrapheNonOrienteNbDegre(G2,'C')
-#print("Degré A :",degA,"\nDegré B :",degB)
-
+print("Degré A :",degA,"\nDegré B :",degB)
 
 # ACT 3 
 def GrapheOrienteNbDegre(g,s):
@@ -173,7 +170,7 @@ def GrapheOrienteNbDegre(g,s):
         return "sommet inexistant"
     return "Le sommet {} a pour degré : {}".format(s,deg)
 
-#print(GrapheOrienteNbDegre(G,'A'))
+print(GrapheOrienteNbDegre(G,'A'))
 
 # ACT 4
 GrMat = {'A':['B','D'],'B':['A','C'],'C':['B'],'D':['A','B']}
@@ -181,5 +178,147 @@ def GrapheMatriceAdj(g):
     NbSom = len(g.keys())
     Sommets = []
     Mat = [[ n*0 for n in range(NbSom)] for i in range(NbSom)]
-    print(Mat)
-GrapheMatriceAdj(GrMat)
+    
+    sortKey = sorted(g.keys())
+    for k in sortKey:
+        Sommets.append(k)
+    
+    for clef in g:
+        lval = g.get(clef)
+        lval.sort()
+        index_ligne = Sommets.index(clef)
+        for i in lval:
+            index_colonne = Sommets.index(i)
+            Mat[index_ligne][index_colonne] = 1
+    return Mat
+
+def beautyPrint(l):
+    print("[")
+    for i in l :
+        print("  ",i)
+    print("]")
+
+Mat1 = GrapheMatriceAdj(GrMat)
+Mat2 = GrapheMatriceAdj(G)
+beautyPrint(Mat1)
+beautyPrint(Mat2)
+
+# ACT 5
+
+Graphe = GrapheCreation()
+
+Graphe = GrapheAjoutSommet(Graphe,'A')
+Graphe = GrapheAjoutSommet(Graphe,'B')
+Graphe = GrapheAjoutSommet(Graphe,'C')
+Graphe = GrapheAjoutSommet(Graphe,'D')
+Graphe = GrapheAjoutSommet(Graphe,'E')
+Graphe = GrapheAjoutSommet(Graphe,'F')
+Graphe = GrapheAjoutSommet(Graphe,'G')
+Graphe = GrapheAjoutSommet(Graphe,'H')
+
+Graphe = GrapheAjouterArete(Graphe,'A','C')
+Graphe = GrapheAjouterArete(Graphe,'A','B')
+Graphe = GrapheAjouterArete(Graphe,'C','H')
+Graphe = GrapheAjouterArete(Graphe,'H','G')
+Graphe = GrapheAjouterArete(Graphe,'G','F')
+Graphe = GrapheAjouterArete(Graphe,'F','E')
+Graphe = GrapheAjouterArete(Graphe,'E','B')
+Graphe = GrapheAjouterArete(Graphe,'E','D')
+Graphe = GrapheAjouterArete(Graphe,'D','B')
+
+def CreateFILE():
+    return []
+def Enqueue(f,e):
+    return f.append(e) 
+def Dequeue(f):
+    return f.pop(0)
+
+def GraphBFS(G,S):
+    D = {S:None}
+    print(D)
+    Q = CreateFILE()
+    Enqueue(Q,S)
+    while Q != []:
+        u = Dequeue(Q)
+        for v in G[u]:
+            if v in D:
+                continue
+            D[u] = v
+            Enqueue(Q,v)
+        #print(D,"\n",Q)
+    return D
+
+print(GraphBFS(Graphe,'C'))
+
+# ACT 6 
+def connexeOrNot(G):
+    listKey1 = []
+    for i in Graphe.keys():
+        listKey1.append(i)
+    bfs = GraphBFS(G,listKey1[0])
+    listKey2 = []
+    for y in Graphe.keys():
+        listKey2.append(y)
+    #print(listKey2,listKey1)
+    if len(listKey1) == len(listKey2):
+        return "is connexe"
+    else:
+        return "is'nt connexe"
+G2= {'A' :['E','F'],'B' :['C','D'],'C' :['D','B'],'D' :['B','C'],'E' :['A'],'F':['A']}
+print(connexeOrNot(G2))
+
+# ACT 7
+def CreatePile():
+    return []
+def empiler(f,e):
+    return f.append(e)
+def depiler(f):
+    return f.pop()
+
+def GrapheDFS(g,s):
+    D = {s:None}
+    Q = CreatePile()
+    empiler(Q,s)
+    while Q != []:
+        u = Q[-1]
+        R = g.get(u)
+        if len(Q) > 10:
+            break
+        if R != []:
+            v = random.choice(R)
+            D[v] = u
+            empiler(Q,v)
+        else:
+            depiler(Q)
+    return D
+
+GrL={'A':['B','C'],'B':['A','D','E'],'C':['A','D','H'],'D':['B','C','E'],'E':['B','D','F'],'F':['E','G'],'G':['F','H'],'H':['G','C'] } 
+print(GrapheDFS(GrL,'A'))
+print("------------------")
+
+# ACT 8
+def MatriceAdjGraphe(M):
+    Graphe = {}
+    asciinum = 65
+    lettre = []
+    for i in range(len(M)):
+        lettre.append(chr(asciinum+i))
+
+    for l in lettre:
+        Graphe = GrapheAjoutSommet(Graphe,l)
+
+    for k in range(len(M)):
+        for j in range(len(M)):
+            if M[k][j] == 1:
+                Graphe = GrapheAjouterArcs(Graphe,lettre[k],lettre[j])
+    return Graphe
+
+
+grMat = [
+    [0,1,0,1,1],
+    [1,0,1,0,0],
+    [0,1,0,1,1],
+    [1,0,1,0,0],
+    [1,0,1,0,1]
+]
+print(MatriceAdjGraphe(grMat))
