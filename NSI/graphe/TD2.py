@@ -1,12 +1,7 @@
-<<<<<<< HEAD
 # ACT 1
-from operator import truediv
-from this import d
-from numpy import Infinity
 
-=======
 import random
->>>>>>> 27502f83bfbb090f3e08910c357b2e63702b54e8
+
 
 def GrapheCreation():
     return dict()
@@ -138,7 +133,9 @@ print(G)
 
 print("###################")
 
-###################################
+###############################################################################
+
+
 # ACT 1
 
 def GrapheNbSommets(g):
@@ -251,9 +248,8 @@ def GraphBFS(G,S):
         for v in G[u]:
             if v in D:
                 continue
-            D[u] = v
+            D[v] = u
             Enqueue(Q,v)
-        #print(D,"\n",Q)
     return D
 
 print(GraphBFS(Graphe,'C'))
@@ -290,10 +286,9 @@ def GrapheDFS(g,s):
     while Q != []:
         u = Q[-1]
         R = g.get(u)
-        if len(Q) > 10:
-            break
         if R != []:
             v = random.choice(R)
+            R.remove(v)
             D[v] = u
             empiler(Q,v)
         else:
@@ -301,7 +296,8 @@ def GrapheDFS(g,s):
     return D
 
 GrL={'A':['B','C'],'B':['A','D','E'],'C':['A','D','H'],'D':['B','C','E'],'E':['B','D','F'],'F':['E','G'],'G':['F','H'],'H':['G','C'] } 
-print(GrapheDFS(GrL,'A'))
+print("------------------")
+print(GrapheDFS(GrL,'C'))
 print("------------------")
 
 # ACT 8
@@ -329,4 +325,5 @@ grMat = [
     [1,0,1,0,0],
     [1,0,1,0,1]
 ]
-print(MatriceAdjGraphe(grMat))
+#print("#######################")
+#print(MatriceAdjGraphe(grMat))
